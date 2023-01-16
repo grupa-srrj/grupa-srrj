@@ -1,42 +1,43 @@
 from django.shortcuts import render
 
+
 def config(request):
     return render(
         request,
-        'cars/cars.html'
+        'user/user.html'
     )
 
 
-def adding(request):
+def login(request):
     return render(
         request,
-        'cars/adding.html'
+        'user/login.html'
     )
 
 
 def subtraction(request):
     return render(
         request,
-        'cars/subtraction.html'
+        'user/subtraction.html'
     )
 
 
-def edition(request):
+def signout(request):
     return render(
         request,
-        'cars/edition.html'
+        'user/signout.html'
     )
 
 
-def our_fleet(request):
+def registration(request):
     return render(
         request,
-        'cars/our_fleet.html'
+        'user/registration.html'
     )
 
 
-def details(request):
+def password_recovery(request):
     return render(
         request,
-        'cars/details.html'
+        'user/password_recovery.html'
     )
