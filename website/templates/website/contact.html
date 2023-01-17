@@ -1,13 +1,13 @@
-{% extends "website/base.html" %}
+{% extends "base.html" %}
 {% load static %}
 
 {% block head %}
-    {% include "website/head.html" %}
+    {% include "head.html" %}
 {% endblock %}
 
 {% block content %}
 
-    {% include 'website/navbar.html' %}
+    {% include 'navbar.html' %}
 
     <section class="hero is-medium is-link">
       <div class="hero-body has-text-centered">
@@ -36,6 +36,7 @@
                             <li>Aliquam nec felis in sapien venenatis viverra fermentum nec lectus.</li>
                             <li>Ut non enim metus.</li>
                           </ul>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -46,5 +47,5 @@
 {% endblock %}
 
 {% block footer %}
-    {% include 'website/footer.html' %}
+    {% include 'footer.html' %}
 {% endblock %}
