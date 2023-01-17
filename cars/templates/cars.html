@@ -1,0 +1,141 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block head %}
+    {% include "head.html" %}
+{% endblock %}
+
+{% block content %}
+
+    {% include 'navbar.html' %}
+
+    <section class="hero is-medium is-link">
+      <div class="hero-body has-text-centered">
+        <p class="title">
+          Our fleet
+        </p>
+        <p class="subtitle">
+          subtitle
+        </p>
+      </div>
+    </section>
+
+    <section class="section is-medium">
+
+            <div class="container">
+                <div class="columns is-multiline">
+
+                    <!-- TO REMOVE: START -->
+                        <div class="column is-4">
+
+                            <div class="card large">
+                            <a href="#">
+                              <div class="card-image">
+                                <figure class="image is-4by3">
+                                  <img src="{% static '/img/placeholder.png' %}" alt="car image">
+                                </figure>
+                              </div>
+                              <div class="card-content">
+                                <div class="media">
+                                  <div class="media-content">
+                                    <p class="title is-4 no-padding">Car brand</p>
+                                    <p class="subtitle is-6">engine type</p>
+                                  </div>
+                                </div>
+                                <div class="content">
+                                  engine capacity
+                                  engine power
+                                </div>
+                              </div>
+                            </a>
+                            </div>
+
+                        </div>
+                    <!-- TO REMOVE: END -->
+
+                    <!-- TO REMOVE: START -->
+                        <div class="column is-4">
+
+                            <div class="card large">
+                            <a href="#">
+                              <div class="card-image">
+                                <figure class="image is-4by3">
+                                  <img src="{% static '/img/car-example.png' %}" alt="car image">
+                                </figure>
+                              </div>
+                              <div class="card-content">
+                                <div class="media">
+                                  <div class="media-content">
+                                    <p class="title is-4 no-padding">Car brand</p>
+                                    <p class="subtitle is-6">engine type</p>
+                                  </div>
+                                </div>
+                                <div class="content">
+                                  engine capacity
+                                  engine power
+                                </div>
+                              </div>
+                            </a>
+                            </div>
+
+                        </div>
+                    <!-- TO REMOVE: END -->
+
+                    <!-- TO REMOVE: START -->
+                        <div class="column is-4">
+
+                            <div class="card large">
+                            <a href="#">
+                              <div class="card-image">
+                                <figure class="image">
+                                  <img src="{% static '/img/car-card-example.png' %}" alt="car image">
+                                </figure>
+                              </div>
+                            </a>
+                            </div>
+
+                        </div>
+                    <!-- TO REMOVE: END -->
+
+
+                    {# for car in cars #}
+                    <!-- START CAR PROFILE -->
+<!--                        <div class="column is-4">-->
+
+<!--                            <div class="card large">-->
+<!--                            <a href="{# url 'cars:fleet' car.id #}">-->
+<!--                              <div class="card-image">-->
+<!--                                <figure class="image is-4by3">-->
+<!--                                  <img src="{# static '/img/placeholder.png' #}" alt="car image">-->
+<!--                                </figure>-->
+<!--                              </div>-->
+<!--                              <div class="card-content">-->
+<!--                                <div class="media">-->
+<!--                                  <div class="media-content">-->
+<!--                                    <p class="title is-4 no-padding">{{ car.brand }}</p>-->
+<!--                                    <p class="subtitle is-6">{{ car.engine_type }}</p>-->
+<!--                                  </div>-->
+<!--                                </div>-->
+<!--                                <div class="content">-->
+<!--                                  {{ car.engine_capacity }}-->
+<!--                                  {{ car.engine_power }}-->
+<!--                                </div>-->
+<!--                              </div>-->
+<!--                            </a>-->
+<!--                            </div>-->
+
+<!--                        </div>-->
+                    <!-- END CAR PROFILE -->
+                    {# endfor #}
+
+                </div>
+            </div>
+
+    </section>
+
+
+{% endblock %}
+
+{% block footer %}
+    {% include 'footer.html' %}
+{% endblock %}

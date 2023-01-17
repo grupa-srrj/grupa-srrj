@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block head %}
+    {% include "head.html" %}
+{% endblock %}
+
+{% block content %}
+
+    {% include 'navbar.html' %}
+
+    <section class="hero is-medium is-link">
+      <div class="hero-body has-text-centered">
+        <p class="title">
+          Our fleet
+        </p>
+        <p class="subtitle">
+          subtitle
+        </p>
+      </div>
+    </section>
+
+    <section class="section is-medium">
+
+            <div class="container">
+                <div class="columns">
+
+                    <!-- TO REMOVE: START -->
+                        <div class="column">
+
+                            <figure class="image">
+                              <img src="{% static '/img/car-details-example.png' %}" alt="car image">
+                            </figure>
+
+                        </div>
+                    <!-- TO REMOVE: END -->
+
+
+
+                </div>
+            </div>
+
+    </section>
+
+
+{% endblock %}
+
+{% block footer %}
+    {% include 'footer.html' %}
+{% endblock %}

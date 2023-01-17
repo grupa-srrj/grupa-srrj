@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class Cars (models.Model):
     brand = models.CharField(max_length= 32)
     engine_type = models.CharField(max_length= 32)
@@ -7,9 +8,7 @@ class Cars (models.Model):
     engine_power = models.CharField(max_length= 32)
     is_available = models.BooleanField(default=True)
 
-
     added = models.DateTimeField(auto_now_add=True)
-
 
 
 class Customer (models.Model):
@@ -18,6 +17,3 @@ class Customer (models.Model):
     phone_number = models.CharField(max_length= 32)
 
     added = models.DateTimeField(auto_now_add=True)
-
-
-
