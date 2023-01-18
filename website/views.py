@@ -25,3 +25,16 @@ def contact(request):
         'website/contact.html',
         context=context
     )
+
+
+def login(request):
+
+    context = {
+        'page_title': "login",
+    }
+
+    return render(
+        request,
+        'website/login.html',
+        context=context
+    )
