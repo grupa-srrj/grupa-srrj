@@ -5,6 +5,7 @@ class Cars (models.Model):
     engine_type = models.CharField(max_length= 32)
     engine_capacity = models.CharField(max_length= 32)
     engine_power = models.CharField(max_length= 32)
+    image= models.ImageField(upload_to='cars/obrazki')
     is_available = models.BooleanField(default=True)
 
 
