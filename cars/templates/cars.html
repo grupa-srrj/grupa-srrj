@@ -25,11 +25,18 @@
             <div class="container">
                 <div class="columns is-multiline">
 
-                    <!-- TO REMOVE: START -->
+                    {% if cars %}
+                    {% for car in cars %}
+                    <!-- START CAR PROFILE -->
                         <div class="column is-4">
 
                             <div class="card large">
-                            <a href="#">
+                            <a href="{% url 'cars:details' car.id %}">
+                              <header class="">
+                                <p class="title is-5 has-text-centered">
+                                  {{ car.category }}
+                                </p>
+                              </header>
                               <div class="card-image">
                                 <figure class="image is-4by3">
                                   <img src="{% static '/img/placeholder.png' %}" alt="car image">
@@ -38,95 +45,31 @@
                               <div class="card-content">
                                 <div class="media">
                                   <div class="media-content">
-                                    <p class="title is-4 no-padding">Car brand</p>
-                                    <p class="subtitle is-6">engine type</p>
+                                        <p class="title is-4 no-padding">{{ car.brand }} {{ car.model }} <span class="is-size-7">or similar</span>
+                                            {% if not car.is_available %}
+                                            <span class="tag is-danger">Unavailable</span>
+                                            {% endif %}
+                                      </p>
                                   </div>
                                 </div>
                                 <div class="content">
-                                  engine capacity
-                                  engine power
+                                    <span class="tag is-light rounded">{{ car.transmission_type }}</span>
+                                    <span class="tag is-light rounded">{{ car.seats_no }} people</span>
+                                    <span class="tag is-light rounded">{{ car.luggage_compartment }} bags</span>
                                 </div>
                               </div>
                             </a>
                             </div>
 
                         </div>
-                    <!-- TO REMOVE: END -->
-
-                    <!-- TO REMOVE: START -->
-                        <div class="column is-4">
-
-                            <div class="card large">
-                            <a href="#">
-                              <div class="card-image">
-                                <figure class="image is-4by3">
-                                  <img src="{% static '/img/car-example.png' %}" alt="car image">
-                                </figure>
-                              </div>
-                              <div class="card-content">
-                                <div class="media">
-                                  <div class="media-content">
-                                    <p class="title is-4 no-padding">Car brand</p>
-                                    <p class="subtitle is-6">engine type</p>
-                                  </div>
-                                </div>
-                                <div class="content">
-                                  engine capacity
-                                  engine power
-                                </div>
-                              </div>
-                            </a>
-                            </div>
-
-                        </div>
-                    <!-- TO REMOVE: END -->
-
-                    <!-- TO REMOVE: START -->
-                        <div class="column is-4">
-
-                            <div class="card large">
-                            <a href="#">
-                              <div class="card-image">
-                                <figure class="image">
-                                  <img src="{% static '/img/car-card-example.png' %}" alt="car image">
-                                </figure>
-                              </div>
-                            </a>
-                            </div>
-
-                        </div>
-                    <!-- TO REMOVE: END -->
-
-
-                    {# for car in cars #}
-                    <!-- START CAR PROFILE -->
-<!--                        <div class="column is-4">-->
-
-<!--                            <div class="card large">-->
-<!--                            <a href="{# url 'cars:fleet' car.id #}">-->
-<!--                              <div class="card-image">-->
-<!--                                <figure class="image is-4by3">-->
-<!--                                  <img src="{# static '/img/placeholder.png' #}" alt="car image">-->
-<!--                                </figure>-->
-<!--                              </div>-->
-<!--                              <div class="card-content">-->
-<!--                                <div class="media">-->
-<!--                                  <div class="media-content">-->
-<!--                                    <p class="title is-4 no-padding">{{ car.brand }}</p>-->
-<!--                                    <p class="subtitle is-6">{{ car.engine_type }}</p>-->
-<!--                                  </div>-->
-<!--                                </div>-->
-<!--                                <div class="content">-->
-<!--                                  {{ car.engine_capacity }}-->
-<!--                                  {{ car.engine_power }}-->
-<!--                                </div>-->
-<!--                              </div>-->
-<!--                            </a>-->
-<!--                            </div>-->
-
-<!--                        </div>-->
                     <!-- END CAR PROFILE -->
-                    {# endfor #}
+                    {% endfor %}
+                    {% else %}
+                        <div class="column has-text-centered">
+                            <h2 class="title is-4">No cars are currently available</h2>
+                            <p>We are sorry for any inconveniences</p>
+                        </div>
+                    {% endif %}
 
                 </div>
             </div>

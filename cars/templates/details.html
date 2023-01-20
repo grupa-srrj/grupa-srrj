@@ -25,23 +25,43 @@
             <div class="container">
                 <div class="columns">
 
-                    <!-- TO REMOVE: START -->
-                        <div class="column">
+                        <div class="column is-three-fifths">
+                            <p class="is-size-7">or similar</p>
+                            <h2 class="title is-2">{{ car.brand }} {{ car.model }}</h2>
+                            <p class="is-size-4">{{ car.category }}</p>
+                            <p>{{ car.description }}</p>
+                            <hr>
 
-                            <figure class="image">
-                              <img src="{% static '/img/car-details-example.png' %}" alt="car image">
-                            </figure>
-
+                            <div class="columns">
+                                <div class="column">
+                                    <h3 class="title is-3">Details</h3>
+                                    Transmission: {{ car.transmission_type }}<br>
+                                    Number of seats: {{ car.seats_no  }} seats<br>
+                                    Bags in cargo: {{ car.luggage_compartment }} pieces of luggage<br>
+                                    Engine power: {{ car.engine_power }} HP<br>
+                                    Engine capacity: {{ car.engine_capacity }} cm<sup>3</sup>
+                                </div>
+                                <div class="column">
+                                    <h3 class="title is-3">Features</h3>
+                                    <ul>
+                                    {% for feature in car.features.all %}
+                                        <li>{{ feature }}</li>
+                                    {% endfor %}
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
-                    <!-- TO REMOVE: END -->
 
-
+                        <div class="column">
+                            <figure class="image is-4by3">
+                              <img src="{% static '/img/placeholder.png' %}" alt="car image">
+                            </figure>
+                        </div>
 
                 </div>
             </div>
 
     </section>
-
 
 {% endblock %}
 
