@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block head %}
+    {% include "head.html" %}
+{% endblock %}
+
+{% block content %}
+
+    {% include 'navbar.html' %}
+
+    <section class="hero is-medium is-link">
+      <div class="hero-body has-text-centered">
+        <p class="title">
+          POZNAJ SWÓJ SAMOCHÓD
+        </p>
+        <p class="subtitle">
+
+        </p>
+      </div>
+    </section>
+
+    <section class="section is-medium">
+
+            <div class="container">
+                <div class="columns features">
+                    <div class="column">
+                        <div class="content">
+                          <h2>{{car.brand}}</h2>
+                          <p></p>
+                          <h2>Dane techniczne</h2>
+                          <p></p>
+                          <ul>
+                            <li>Rodzaj silnika : {{car.engine_type}}I</li>
+                            <li>Pojemność silnika : {{car.engine_capacity}}</li>
+                            <li>Moc silnika: {{car.engine_power}}</li>
+                            <li></li>
+                          </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+    </section>
+
+
+{% endblock %}
+
+{% block footer %}
+    {% include 'footer.html' %}
+{% endblock %}
