@@ -1,0 +1,50 @@
+[
+{
+    "model": "cars.car",
+    "pk": 1,
+    "fields": {
+        "brand": "BMW",
+        "model": "1",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        "engine_type": "diesel",
+        "engine_capacity": 1500,
+        "engine_power": 120,
+        "transmission_type": "manual",
+        "seats_no": 4,
+        "luggage_compartment": 2,
+        "is_available": true,
+        "added": "2023-01-19T20:52:45.496Z",
+        "features": [
+            1,
+            3,
+            4,
+            5,
+            2
+        ],
+        "category": 1
+    }
+},
+{
+    "model": "cars.car",
+    "pk": 2,
+    "fields": {
+        "brand": "Audi",
+        "model": "2",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        "engine_type": "petrol",
+        "engine_capacity": 1200,
+        "engine_power": 90,
+        "transmission_type": "manual",
+        "seats_no": 4,
+        "luggage_compartment": 2,
+        "is_available": false,
+        "added": "2023-01-19T21:08:06.306Z",
+        "features": [
+            1,
+            3,
+            2
+        ],
+        "category": 2
+    }
+}
+]
