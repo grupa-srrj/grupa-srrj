@@ -2,11 +2,9 @@ from django.db import models
 
 
 class Category(models.Model):
-
     category = models.CharField(max_length=24, default='standard', unique=True)
 
     class Meta:
-        ordering = ['category']
         verbose_name_plural = 'Categories'
 
     def __str__(self):
@@ -14,11 +12,7 @@ class Category(models.Model):
 
 
 class Feature(models.Model):
-
     feature = models.CharField(max_length=64, unique=True)
-
-    class Meta:
-        ordering = ['feature']
 
     def __str__(self):
         return self.feature
@@ -37,8 +31,7 @@ class Car(models.Model):
 
     brand = models.CharField(max_length= 32)
     model = models.CharField(max_length= 32)
-    # TODO: add profile pictures for cars
-    # profile_picture = models.ImageField(upload_to='img', default='car-example.png')
+    image = models.ImageField(upload_to='media/cars', default='static/img/placeholder.png')
     description = models.TextField(max_length=512, blank=True)
     engine_type = models.CharField(max_length= 32, choices=ENGINE_CHOICES, default='diesel')
     engine_capacity = models.PositiveSmallIntegerField(help_text="engine capacity in cm³")
@@ -53,11 +46,9 @@ class Car(models.Model):
 
     added = models.DateTimeField(auto_now_add=True)
 
-    class Meta:
-        ordering = ['brand', 'model']
 
     def __str__(self):
-        return f"[{self.category}] {self.brand} {self.model}, {self.transmission_type}, {self.engine_capacity}HP {self.engine_type}"
+        return f"[{self.category}] {self.brand} {self.model}, {self.transmission_type}, {self.engine_power}HP {self.engine_type}"
 
 
 class Customer(models.Model):
