@@ -49,6 +49,10 @@ def log (request):
         if user is not None:
             login(request, user)
             return redirect('cars:rent_form')
+        else:
+            messages.info(request,'Userame or password is incorrect')
+            return render(request,
+                          'cars/login.html')
 
     return render(request,
                   'cars/login.html')
@@ -57,4 +61,21 @@ def rent_form(request):
 
     return render(request,
                   'cars/rent_form.html')
+
+
+def register(request):
+
+    form=UserCreationForm()
+
+    if request.method == 'POST':
+        form=UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request,'Konto założone pomyslnie')
+
+            return redirect('cars:login')
+
+    return render(request,
+                  'cars/register.html',
+                  context={'form':form})
 

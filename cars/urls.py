@@ -10,7 +10,7 @@ urlpatterns= [
     path('', views.fleet, name='fleet'),
     path('<int:car_id>/', views.details, name='details'),
     path('login/', views.log, name='login'),
-    path('rent_form', views.rent_form, name='rent_form')
+    path('rent_form', views.rent_form, name='rent_form',),
+    path('register_form', views.register, name='register')
 
-
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+             ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
