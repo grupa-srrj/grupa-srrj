@@ -1,11 +1,13 @@
 from django.shortcuts import render,redirect
-from . models import Car
+from . models import Car, User
 from django.forms import inlineformset_factory
 from django.contrib.auth.forms import UserCreationForm
 
 from django.contrib.auth import authenticate, login, logout
 
 from django.contrib import messages
+
+#from django.contrib.auth.decorators import login_required
 
 # list of the whole fleet
 def fleet(request):
@@ -18,7 +20,7 @@ def fleet(request):
 
     return render(
         request,
-        'cars.html',
+        'cars/cars.html',
         context=context
     )
 
@@ -34,7 +36,7 @@ def details(request, car_id):
 
     return render(
         request,
-        'details.html',
+        'cars/details.html',
         context=context
     )
 
@@ -57,10 +59,13 @@ def log (request):
     return render(request,
                   'cars/login.html')
 
+#@login_required(login_url = 'login')
 def rent_form(request):
 
+
     return render(request,
-                  'cars/rent_form.html')
+                  'cars/rent_form.html',
+                )
 
 
 def register(request):
@@ -79,3 +84,6 @@ def register(request):
                   'cars/register.html',
                   context={'form':form})
 
+def logt(request):
+
+    return redirect('cars:login')
