@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block head %}
+    {% include "head.html" %}
+{% endblock %}
+
+{% block content %}
+
+    {% include 'navbar.html' %}
+
+	{% load crispy_forms_tags %}
+
+        <section class="section is-medium has-background-white-ter">
+
+            <div class="container">
+                <div class="columns">
+
+                    <div class="column">
+
+						<!--Register-->
+						<div class="container py-5">
+							<h1>Register</h1>
+							<form method="POST">
+								{% csrf_token %}
+								{{ register_form|crispy }}
+								<button class="btn btn-primary" type="submit">Register</button>
+							</form>
+							<p class="text-center">If you already have an account, <a href="/login">login</a> instead.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+
+{% endblock %}
+
+{% block footer %}
+    {% include 'footer.html' %}
+{% endblock %}
