@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block head %}
+
+    {% include "head.html" %}
+{% endblock %}
+
+{% block content %}
+<nav class="navbar signal-navbar is-fixed-top" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <div class="navbar-brand">
+            <a href="#">
+                <img class="logo" src="#" alt="logo">
+            </a>
+            <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="signalNavbar">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+        <div id="signalNavbar" class="navbar-menu">
+            <div class="navbar-end">
+                <a class="navbar-item" href="{% url 'website:homepage' %}">Homepage</a>
+                <a class="navbar-item" href="{% url 'cars:fleet' %}">Fleet</a>
+                <a class="navbar-item" href="{% url 'website:contact' %}">Contact</a>
+                <a class="navbar-item" href="{% url 'cars:login' %}">login</a>
+                <a class="navbar-item" href="{% url 'cars:logout' %}">logOut</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+
+    <section class="hero is-medium is-link">
+      <div class="hero-body has-text-centered">
+        <p class="title">
+          WITAJ {{ request.user }}
+
+      </div>
+    </section>
+
+    <section class="section is-medium">
+
+            <div class="container">
+                <div class="columns">
+
+                        <div class="column is-three-fifths">
+                            <h2 class="title is-2">GRATULACJE {{ request.user }} </h2>
+                            <p class="is-size-4"></p>
+                            <p>FORMULARZ REZERWACYJNY</p>
+                            <hr>
+
+                         <form class="form" method="POST">
+                        {% csrf_token %}
+                            <div class="select is-multiple">
+
+                            <select name="choice" >
+
+                             {% for item in choice %}
+                            <option >{{item.brand}}</option>
+                            {% endfor %}
+                           </select>
+                                <input type="submit" value="DODAJ POSTAĆ">
+                         </form>
+
+
+
+</div>
+
+
+                        </div>
+
+
+
+
+
+            </div>
+
+
+
+
+
+            </div>
+
+    </section>
+
+{% endblock %}
+
+{% block footer %}
+    {% include 'footer.html' %}
+{% endblock %}

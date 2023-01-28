@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 
 class Category(models.Model):
@@ -48,12 +49,10 @@ class Car(models.Model):
 
 
     def __str__(self):
-        return f"[{self.category}] {self.brand} {self.model}, {self.transmission_type}, {self.engine_power}HP {self.engine_type}"
+        return self.brand
 
 
-class Customer(models.Model):
-    name = models.CharField(max_length= 64)
-    address = models.CharField(max_length= 32)
-    phone_number = models.CharField(max_length= 32)
-
-    added = models.DateTimeField(auto_now_add=True)
+class Order(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    car = models.ForeignKey(Car, on_delete=models.CASCADE)
+    carr = models.CharField(max_length= 32)
