@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect
-from . models import Car, User
+from . models import Car, User, Order
 from django.forms import inlineformset_factory
 from django.contrib.auth.forms import UserCreationForm
 
@@ -62,9 +62,20 @@ def log (request):
 #@login_required(login_url = 'login')
 def rent_form(request):
 
+    choice = Car.objects.all()
+
+    if request.method == "POST":
+        data = request.POST
+
+        Order.objcets.create(
+
+            carr = ('choice')
+        )
+
 
     return render(request,
                   'cars/rent_form.html',
+                  context = {'choice':choice},
                 )
 
 

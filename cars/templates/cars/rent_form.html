@@ -36,10 +36,7 @@
       <div class="hero-body has-text-centered">
         <p class="title">
           WITAJ {{ request.user }}
-        </p>
-        <p class="subtitle">
 
-        </p>
       </div>
     </section>
 
@@ -49,33 +46,41 @@
                 <div class="columns">
 
                         <div class="column is-three-fifths">
-                            <p class="is-size-7">or similar</p>
-                            <h2 class="title is-2">aaaaaaaaaaa</h2>
-                            <p class="is-size-4">aaaaaaaaaaaa</p>
-                            <p>aaaaaaaaaaaa</p>
+                            <h2 class="title is-2">GRATULACJE {{ request.user }} </h2>
+                            <p class="is-size-4"></p>
+                            <p>FORMULARZ REZERWACYJNY</p>
                             <hr>
 
-                            <div class="columns">
-                                <div class="column">
-                                    <h3 class="title is-3">Details</h3>
+                         <form class="form" method="POST">
+                        {% csrf_token %}
+                            <div class="select is-multiple">
 
-                                </div>
-                                <div class="column">
-                                    <h3 class="title is-3">Features</h3>
-                                    <ul>
-                                         <li>aaaaaaaaaaaaa</li>
-                                     </ul>
-                                </div>
-                            </div>
+                            <select name="choice" >
+
+                             {% for item in choice %}
+                            <option >{{item.brand}}</option>
+                            {% endfor %}
+                           </select>
+                                <input type="submit" value="DODAJ POSTAĆ">
+                         </form>
+
+
+
+</div>
+
+
                         </div>
 
-                        <div class="column">
-                            <figure class="image is-4by3">
-                                <img src="{% static 'img/placeholder.png' %}" alt="car image">
-                            </figure>
-                        </div>
 
-                </div>
+
+
+
+            </div>
+
+
+
+
+
             </div>
 
     </section>
