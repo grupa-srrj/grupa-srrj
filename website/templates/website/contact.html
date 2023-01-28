@@ -17,9 +17,16 @@
             <div class="container">
                 <div class="columns">
 
-                    <div class="column">
+                    <div class="column content">
 
 			<h1>Contact</h1>
+
+						<p>{{ company_name }}</p>
+                          <p>{{ company_description }}</p>
+                          <p>P.O. Box: {{ company_po_box }}</p>
+                          <p>Phone: {{ company_phone }}</p>
+                          <p>Email: {{ company_email }}</p>
+
 			<h4>Contact us directly if you have any questions</h4>
 			<p>
 				Please write your name, email address and a message below if you have any questions.
@@ -39,3 +46,22 @@
 {% block footer %}
     {% include 'footer.html' %}
 {% endblock %}
+
+
+    <section class="section is-medium">
+
+            <div class="container">
+                <div class="columns features">
+                    <div class="column">
+                        <div class="content has-text-centered">
+                          <p>{{ company_name }}</p>
+                          <p>{{ company_description }}</p>
+                          <p>P.O. Box: {{ company_po_box }}</p>
+                          <p>Phone: {{ company_phone }}</p>
+                          <p>Email: {{ company_email }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+    </section>
