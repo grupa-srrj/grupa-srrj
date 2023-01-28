@@ -9,34 +9,39 @@
 
     {% include 'navbar.html' %}
 
-    <section class="hero hero-subsite is-link">
-      <div class="hero-body has-text-centered">
-        <h1 class="title">
-          Contact us
-        </h1>
-      </div>
-    </section>
 
-    <section class="section is-medium">
+		{% load crispy_forms_tags %}	
+
+        <section class="section is-medium has-background-white-ter">
 
             <div class="container">
-                <div class="columns features">
-                    <div class="column">
-                        <div class="content has-text-centered">
-                          <p>{{ company_name }}</p>
+                <div class="columns">
+
+                    <div class="column content">
+
+			<h1>Contact</h1>
+
+						<p>{{ company_name }}</p>
                           <p>{{ company_description }}</p>
                           <p>P.O. Box: {{ company_po_box }}</p>
                           <p>Phone: {{ company_phone }}</p>
                           <p>Email: {{ company_email }}</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-    </section>
-
-
-{% endblock %}
+			<h4>Contact us directly if you have any questions</h4>
+			<p>
+				Please write your name, email address and a message below if you have any questions.
+				One of our staff members will be happy to contact you directly and answer your questions as soon as possible. 
+			</p>
+			<form method="post">
+	        {% csrf_token %}
+	            {{form|crispy}}
+	            <button class="btn btn-primary" type="submit">Submit</button>
+	        </form>
+	    </div>
+	    </div>
+	    </div>
+		</section>
+  {% endblock %}
 
 {% block footer %}
     {% include 'footer.html' %}
