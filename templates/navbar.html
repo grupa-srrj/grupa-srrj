@@ -16,25 +16,18 @@
                 <a class="navbar-item" href="{% url 'website:homepage' %}">Homepage</a>
                 <a class="navbar-item" href="{% url 'cars:fleet' %}">Fleet</a>
                 <a class="navbar-item" href="{% url 'website:contact' %}">Contact</a>
-                <ul class="navbar-nav mr-auto">
-        {% if user.is_authenticated %}
-
-        <li class="nav-item">
-          <a class="nav-link" href="/logout">Logout</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Welcome, {{user.username}}</a>
-        </li>
-
-        {% else %}
-
-        <li class="nav-item">
-          <a class="nav-link" href="/login">Login</a>
-        </li>
-
-        {% endif %}
-      </ul>
-
+                {% if user.is_authenticated %}
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link">Welcome, {{user.username}}</a>
+                        <div class="navbar-dropdown">
+                            <a class="navbar-item" href="/logout">Logout</a>
+                        </div>
+                </div>
+                {% else %}
+                <div class="navbar-item">
+                    <a class="navbar-item button is-primary" href="{% url 'website:login' %}">Login</a>
+                </div>
+                {% endif %}
             </div>
         </div>
     </div>
