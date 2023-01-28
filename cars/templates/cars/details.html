@@ -9,7 +9,7 @@
 
     {% include 'navbar.html' %}
 
-    <section class="hero is-medium is-link">
+    <section class="hero hero-subsite is-link">
       <div class="hero-body has-text-centered">
         <p class="title">
           Our fleet
@@ -35,10 +35,15 @@
                             <div class="columns">
                                 <div class="column">
                                     <h3 class="title is-3">Details</h3>
+                                    <span class="material-symbols-outlined">settings_suggest</span>
                                     Transmission: {{ car.transmission_type }}<br>
+                                    <span class="material-symbols-outlined">groups</span>
                                     Number of seats: {{ car.seats_no  }} seats<br>
+                                    <span class="material-symbols-outlined">cases</span>
                                     Bags in cargo: {{ car.luggage_compartment }} pieces of luggage<br>
+                                    <span class="material-symbols-outlined">speed</span>
                                     Engine power: {{ car.engine_power }} HP<br>
+                                    <span class="material-symbols-outlined">oil_barrel</span>
                                     Engine capacity: {{ car.engine_capacity }} cm<sup>3</sup>
                                 </div>
                                 <div class="column">
@@ -53,9 +58,15 @@
                         </div>
 
                         <div class="column">
+                            {% if car.image %}
+                            <figure class="image is-4by3">
+                                <img src="{{MEDIA_URL}}{{ car.image }}" alt="car image">
+                            </figure>
+                            {% else %}
                             <figure class="image is-4by3">
                                 <img src="{% static 'img/placeholder.png' %}" alt="car image">
                             </figure>
+                            {% endif %}
                         </div>
 
                 </div>

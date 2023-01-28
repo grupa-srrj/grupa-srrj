@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from . models import Car
+from django.shortcuts import get_object_or_404
 
 
 # list of the whole fleet
@@ -13,14 +14,15 @@ def fleet(request):
 
     return render(
         request,
-        'cars.html',
+        'cars/cars.html',
         context=context
     )
 
 
 # details of selected car
 def details(request, car_id):
-    car = Car.objects.get(id=car_id)
+    car = get_object_or_404(Car, id=car_id)
+
 
     context = {
         'page_title': "Our fleet",
@@ -29,6 +31,6 @@ def details(request, car_id):
 
     return render(
         request,
-        'details.html',
+        'cars/details.html',
         context=context
     )

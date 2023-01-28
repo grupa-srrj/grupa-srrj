@@ -73,6 +73,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.media',
+                'config.context_processors.site_settings',
             ],
         },
     },
@@ -128,9 +130,10 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATIC_ROOT = BASE_DIR / 'static'
+STATICFILES_DIRS = [BASE_DIR / 'staticfiles',]
 
-MEDIA_URL = ''
-MEDIA_ROOT = ''
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
@@ -139,3 +142,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_REDIRECT_URL = "home"
 LOGOUT_REDIRECT_URL = "home"
+
+# Business data
+COMPANY_NAME = 'carrent ltd.'
+COMPANY_EMAIL = 'contact@carrent.test'
+COMPANY_PHONE = '+1-202-555-0126'
+COMPANY_PO_BOX = 'PO Box 100, Some marvel city, in a marvel land'
+COMPANY_DESCRIPTION = 'Affordable car hire company'

@@ -31,7 +31,7 @@ class Car(models.Model):
 
     brand = models.CharField(max_length= 32)
     model = models.CharField(max_length= 32)
-    image = models.ImageField(upload_to='media/cars', default='static/img/placeholder.png')
+    image = models.ImageField(upload_to='cars/', blank=True)
     description = models.TextField(max_length=512, blank=True)
     engine_type = models.CharField(max_length= 32, choices=ENGINE_CHOICES, default='diesel')
     engine_capacity = models.PositiveSmallIntegerField(help_text="engine capacity in cm³")

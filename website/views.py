@@ -38,3 +38,28 @@ def login(request):
         'website/login.html',
         context=context
     )
+
+
+def privacy(request):
+
+    context = {
+        'page_title': "Privacy policy",
+    }
+
+    return render(
+        request,
+        'website/privacy.html',
+        context=context
+    )
+
+def terms(request):
+
+    context = {
+        'page_title': "Terms and conditions",
+    }
+
+    return render(
+        request,
+        'website/terms.html',
+        context=context
+    )

@@ -9,7 +9,7 @@
 
     {% include 'navbar.html' %}
 
-    <section class="hero is-medium is-link">
+    <section class="hero hero-subsite is-link">
       <div class="hero-body has-text-centered">
         <p class="title">
           Car rent login website
@@ -22,7 +22,7 @@
             <div class="container">
                 <div class="columns features">
                     <div class="column">
-                        <div class="content">
+                        <div class="content has-text-centered">
                             <h2>Log In</h2>
                             {% if user.is_authenticated %}
                               Hi {{ user.username }}!

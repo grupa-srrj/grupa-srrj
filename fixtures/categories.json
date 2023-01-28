@@ -12,5 +12,12 @@
     "fields": {
         "category": "economy"
     }
+},
+{
+    "model": "cars.category",
+    "pk": 3,
+    "fields": {
+        "category": "luxury"
+    }
 }
 ]
