@@ -19,6 +19,28 @@ class Feature(models.Model):
         return self.feature
 
 
+class Department(models.Model):
+
+    country = models.CharField(max_length= 32, blank=True)
+    city = models.CharField(max_length= 64)
+    street_address = models.CharField(max_length= 64)
+    post_code = models.CharField(max_length= 10)
+    description = models.TextField(max_length=512, blank=True)
+    manager = models.ForeignKey(
+        User,
+        on_delete=models.SET_NULL,
+        blank=True, null=True,
+        verbose_name='Manager',
+        limit_choices_to={'groups__name': 'managers'},
+        related_name='managers_set'
+    )
+
+    added = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.city
+
+
 class Car(models.Model):
     TRANSMISSION_CHOICES = [
         ('manual', ('manual gear')),
@@ -44,15 +66,16 @@ class Car(models.Model):
 
     features = models.ManyToManyField(Feature)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    # departments = models.ForeignKey(Department, null=True, on_delete=models.CASCADE)
 
     added = models.DateTimeField(auto_now_add=True)
 
 
     def __str__(self):
-        return self.brand
+        return f"[{self.category}] {self.brand} {self.model}, {self.transmission_type}, {self.engine_power}HP {self.engine_type}"
 
 
 class Order(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     car = models.ForeignKey(Car, on_delete=models.CASCADE)
-    carr = models.CharField(max_length= 32)
+    carr = models.CharField(max_length= 32, blank=True)
