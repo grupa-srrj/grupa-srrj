@@ -9,11 +9,14 @@
 
     {% include 'navbar.html' %}
 
-    <section class="hero hero-subsite is-link">
+    <section class="hero is-medium is-link">
       <div class="hero-body has-text-centered">
         <h1 class="title">
-          Contact us
+          404 Page not found
         </h1>
+        <p class="subtitle">
+          We are sorry, the requested page couldn't be found
+        </p>
       </div>
     </section>
 
@@ -22,12 +25,8 @@
             <div class="container">
                 <div class="columns features">
                     <div class="column">
-                        <div class="content has-text-centered">
-                          <p>{{ company_name }}</p>
-                          <p>{{ company_description }}</p>
-                          <p>P.O. Box: {{ company_po_box }}</p>
-                          <p>Phone: {{ company_phone }}</p>
-                          <p>Email: {{ company_email }}</p>
+                        <div class="content has-text-centered is-size-3">
+                          Return to the <a href="{% url 'website:homepage' %}">homepage</a> or search for a <a href="{% url 'cars:fleet' %}">car to rent</a>.
                         </div>
                     </div>
                 </div>

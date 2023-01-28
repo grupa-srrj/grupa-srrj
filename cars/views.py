@@ -1,13 +1,11 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect, get_object_or_404
 from . models import Car, User, Order
 from django.forms import inlineformset_factory
 from django.contrib.auth.forms import UserCreationForm
-
 from django.contrib.auth import authenticate, login, logout
-
 from django.contrib import messages
-
 #from django.contrib.auth.decorators import login_required
+
 
 # list of the whole fleet
 def fleet(request):
@@ -27,7 +25,8 @@ def fleet(request):
 
 # details of selected car
 def details(request, car_id):
-    car = Car.objects.get(id=car_id)
+    car = get_object_or_404(Car, id=car_id)
+
 
     context = {
         'page_title': "Our fleet",
@@ -67,7 +66,7 @@ def rent_form(request):
     if request.method == "POST":
         data = request.POST
 
-        Order.objcets.create(
+        Order.objects.create(
 
             carr = ('choice')
         )
