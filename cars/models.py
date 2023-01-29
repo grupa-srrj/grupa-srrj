@@ -76,6 +76,8 @@ class Car(models.Model):
 
 
 class Order(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    car = models.ForeignKey(Car, on_delete=models.CASCADE)
-    carr = models.CharField(max_length= 32, blank=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE,null=True)
+    car = models.ForeignKey(Car, on_delete=models.CASCADE,null=True)
+    phone = models.CharField(max_length= 32, blank=True)
+    start_rent = models.CharField(max_length= 32, blank=True)
+    stop_rent = models.CharField(max_length= 32, blank=True)

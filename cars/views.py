@@ -36,18 +36,18 @@ def details(request, car_id):
 
 #@login_required(login_url = 'login')
 def rent_form(request):
-
-    choice = Car.objects.all()
-
     if request.method == "POST":
         data = request.POST
 
         Order.objects.create(
-
-            carr = ('choice')
+            phone = data.get('phone'),
+            start_rent = data.get('start'),
+            stop_rent = data.get('stop'),
+            # user = data.get ('')
+            # car = data.get ('')
         )
 
     return render(request,
                   'cars/rent_form.html',
-                  context={'choice':choice},
                 )
+

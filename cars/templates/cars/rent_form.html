@@ -24,8 +24,8 @@
                 <a class="navbar-item" href="{% url 'website:homepage' %}">Homepage</a>
                 <a class="navbar-item" href="{% url 'cars:fleet' %}">Fleet</a>
                 <a class="navbar-item" href="{% url 'website:contact' %}">Contact</a>
-                <a class="navbar-item" href="{% url 'cars:login' %}">login</a>
-                <a class="navbar-item" href="{% url 'cars:logout' %}">logOut</a>
+
+
             </div>
         </div>
     </div>
@@ -49,21 +49,29 @@
                             <h2 class="title is-2">GRATULACJE {{ request.user }} </h2>
                             <p class="is-size-4"></p>
                             <p>FORMULARZ REZERWACYJNY</p>
-                            <hr>
+                            <p>Twój samochód to : [przekazanie samochdou]</p>
 
-                         <form class="form" method="POST">
-                        {% csrf_token %}
-                            <div class="select is-multiple">
+                          <form class="form" method="POST">
+                             {% csrf_token %}
 
-                            <select name="choice" >
+                            <p> Potrzebujemy jeszcze kilku informacji:</p>
 
-                             {% for item in choice %}
-                            <option >{{item.brand}}</option>
-                            {% endfor %}
-                           </select>
-                                <input type="submit" value="DODAJ POSTAĆ">
+                             <p>
+                             <label for="start">Start date:</label>
+                            <input type="text"id="start" name="start">
+                             </p>
+
+                              <p>
+                             <label for="start">stop date:</label>
+                             <input type="text"id="stop" name="stop">
+                            </p>
+                             <p>
+                                 <label for="phone">Enter your phone number:</label>
+                                    <input type="text" id="phone" name="phone">
+                             </p>
+                              <input type="submit" value="WYPOŻYCZ">
+
                          </form>
-
 
 
 </div>
