@@ -22,10 +22,10 @@
                       <div class="container py-5">
                         <h1 class="title is-1">Login</h1>
                         <form method="POST">
-                          {% csrf_token %}
-                          {{ login_form|crispy }}
-                            <br>
-                          <button class="button is-primary mt-4" >Login</button>
+                            {% csrf_token %}
+                            {{ login_form|crispy }}
+                            <input type="hidden" name="next" value="{{ request.GET.next }}">
+                            <button class="button is-primary mt-4" >Login</button>
                         </form>
                           <br>
                         <p class="text-center">Don't have an account? <a href="/register"><u><b>Create an account</b></u></a>.</p>

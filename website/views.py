@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from .forms import ContactForm
 from django.core.mail import send_mail, BadHeaderError
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib import messages
 from .forms import NewUserForm
 from django.contrib.auth import login, authenticate, logout
@@ -95,13 +95,18 @@ def login_request(request):
     if request.method == "POST":
         form = AuthenticationForm(request, data=request.POST)
         if form.is_valid():
+            data = request.POST
             username = form.cleaned_data.get('username')
             password = form.cleaned_data.get('password')
             user = authenticate(username=username, password=password)
             if user is not None:
                 login(request, user)
+                next = data.get('next')
                 messages.info(request, f"You are now logged in as {username}.")
-                return redirect("website:homepage")
+                if next:
+                    return HttpResponseRedirect(next)
+                else:
+                    return redirect("website:homepage")
             else:
                 messages.error(request,"Invalid username or password.")
         else:
