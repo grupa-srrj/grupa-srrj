@@ -77,7 +77,7 @@
                             {% if user.is_authenticated %}
                                 {% include 'cars/rent_form.html' %}
                             {% else %}
-                                <a class="navbar-item button is-primary" href="{% url 'website:login' %}">Ask for availability</a>
+                                <a class="navbar-item button is-primary" href="{% url 'website:login' %}?next={{ request.path|urlencode }}">Ask for availability</a>
                             {% endif %}
                         </div>
 
