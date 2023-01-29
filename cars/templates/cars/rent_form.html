@@ -1,100 +1,26 @@
-{% extends "base.html" %}
-{% load static %}
+<h2 class="title is-2">Ask for availability, {{ request.user }} </h2>
+<p class="is-size-4"></p>
+<p>Chosen car : {{ car.brand }} {{ car.model }}</p>
 
-{% block head %}
+<form class="form" method="POST">
+ {% csrf_token %}
+    <input type="hidden" id="username" name="username" value="{{ request.user }}">
+    <input type="hidden" id="carID" name="carID" value="{{ car.id }}">
+    <p class="title is-3">Add pick-up and return dates</p>
 
-    {% include "head.html" %}
-{% endblock %}
+    <p>
+        <label for="start">Pick-up date:</label>
+        <input class="input" type="date" id="start" name="start" min="" max="">
+    </p>
 
-{% block content %}
-<nav class="navbar signal-navbar is-fixed-top" role="navigation" aria-label="main navigation">
-    <div class="container">
-        <div class="navbar-brand">
-            <a href="#">
-                <img class="logo" src="#" alt="logo">
-            </a>
-            <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="signalNavbar">
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-            </a>
-        </div>
-        <div id="signalNavbar" class="navbar-menu">
-            <div class="navbar-end">
-                <a class="navbar-item" href="{% url 'website:homepage' %}">Homepage</a>
-                <a class="navbar-item" href="{% url 'cars:fleet' %}">Fleet</a>
-                <a class="navbar-item" href="{% url 'website:contact' %}">Contact</a>
+    <p>
+         <label for="start">Return date:</label>
+         <input class="input" type="date" id="stop" name="stop" min="" max="">
+    </p>
+    <p>
+        <label for="phone">Enter your phone number:</label>
+        <input class="input" type="tel" id="phone" name="phone">
+    </p>
+      <input class="button is-primary" type="submit" value="Send request">
 
-
-            </div>
-        </div>
-    </div>
-</nav>
-
-
-    <section class="hero is-medium is-link">
-      <div class="hero-body has-text-centered">
-        <p class="title">
-          WITAJ {{ request.user }}
-
-      </div>
-    </section>
-
-    <section class="section is-medium">
-
-            <div class="container">
-                <div class="columns">
-
-                        <div class="column is-three-fifths">
-                            <h2 class="title is-2">GRATULACJE {{ request.user }} </h2>
-                            <p class="is-size-4"></p>
-                            <p>FORMULARZ REZERWACYJNY</p>
-                            <p>Twój samochód to : [przekazanie samochdou]</p>
-
-                          <form class="form" method="POST">
-                             {% csrf_token %}
-
-                            <p> Potrzebujemy jeszcze kilku informacji:</p>
-
-                             <p>
-                             <label for="start">Start date:</label>
-                            <input type="text"id="start" name="start">
-                             </p>
-
-                              <p>
-                             <label for="start">stop date:</label>
-                             <input type="text"id="stop" name="stop">
-                            </p>
-                             <p>
-                                 <label for="phone">Enter your phone number:</label>
-                                    <input type="text" id="phone" name="phone">
-                             </p>
-                              <input type="submit" value="WYPOŻYCZ">
-
-                         </form>
-
-
-</div>
-
-
-                        </div>
-
-
-
-
-
-            </div>
-
-
-
-
-
-            </div>
-
-    </section>
-
-{% endblock %}
-
-{% block footer %}
-    {% include 'footer.html' %}
-{% endblock %}
+</form>
