@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404,redirect
 from . models import Car, Order, User
 from .forms import OrderForm
 
@@ -36,6 +36,9 @@ def details(request, car_id):
                 name=request.user,
                 car=car,
             )
+
+        return redirect ('cars:fleet')
+
     context = {
         'page_title': "Our fleet",
         'car': car,
