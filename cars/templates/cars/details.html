@@ -70,6 +70,18 @@
                         </div>
 
                 </div>
+
+                <div class="columns">
+
+                        <div class="column">
+                            {% if user.is_authenticated %}
+                                {% include 'cars/rent_form.html' %}
+                            {% else %}
+                                <a class="navbar-item button is-primary" href="{% url 'website:login' %}">Ask for availability</a>
+                            {% endif %}
+                        </div>
+
+                </div>
             </div>
 
     </section>
